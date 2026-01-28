@@ -1,0 +1,38 @@
+# Matrix multiplication
+l1 = []
+rows1 = int(input("Enter number of rows for first matrix: "))
+cols1 = int(input("Enter number of columns for first matrix: "))
+print("Enter elements of first matrix:")
+for i in range(rows1):
+    row = []
+    for j in range(cols1):
+        k = int(input(f"Enter element [{i}][{j}]: "))
+        row.append(k)
+    l1.append(row)
+print("Matrix 1:", l1)
+
+l2 = []
+rows2 = int(input("Enter number of rows for second matrix: "))
+cols2 = int(input("Enter number of columns for second matrix: "))
+print("Enter elements of second matrix:")
+for i in range(rows2):
+    row = []
+    for j in range(cols2):
+        k = int(input(f"Enter element [{i}][{j}]: "))
+        row.append(k)
+    l2.append(row)
+print("Matrix 2:", l2)
+
+if cols1 != rows2:
+    print("Matrix multiplication not possible! (columns of first ≠ rows of second)")
+else:
+    result = [[0 for j in range(cols2)] for i in range(rows1)]
+
+    for i in range(rows1):
+        for j in range(cols2):
+            for k in range(cols1):
+                result[i][j] += l1[i][k] * l2[k][j]
+                
+    print("Resultant Matrix:")
+    for r in result:
+        print(r)
